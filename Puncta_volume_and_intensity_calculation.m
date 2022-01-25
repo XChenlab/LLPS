@@ -3,7 +3,8 @@
 % A filepath containing an interested Z-stack tif file should be filled
 % into line 10 (subfolder), while the names of the stack tif files in the timelapse should be filed into
 % line 8 (name1).And the bin of the stack images should be manually filed
-% into line 2
+% into line 2. The threshold values for cell mask and puncta mask (in Line 47 and 55) should be changed related to the intensity and signal-to-background ratio of fluorescence signals
+% 
 %
 clear all
 %% Import the image stack and the parameters
@@ -30,7 +31,7 @@ end
 TifLink.close();
 bkg = 100*power(bin,2);          % background due to camera bias (100 for bin 1x1)
 
-[~,position_crop] = imcrop(max(mov,[],3));% Select the Crop region (Select a region¡ú right click-crop image, default contrast = [0 1]
+[~,position_crop] = imcrop(max(mov,[],3));% Select the Crop region (Select a regionÂ¡Ãº right click-crop image, default contrast = [0 1]
 mov = double(mov);
 mov_crop = [];
 for n  = 1:size(mov,3)
@@ -54,7 +55,7 @@ average_ROI =sum(pixel_in(:))/sum(L(:)) %calculate the average intensity in the 
 Thresh_over_average = 2;% Here is a threshold to the 16-bit images for the puncta mask from the cell mask.
 graythreshold_puncta_ratio = Thresh_over_average*average_ROI/65535;
 BW = im2bw(I,graythreshold_puncta_ratio);%
-[L_puncta,~] = bwlabel(BW,8);  % N¼´ÎªÄ¿±ê¸öÊý
+[L_puncta,~] = bwlabel(BW,8);  % NÂ¼Â´ÃŽÂªÃ„Â¿Â±ÃªÂ¸Ã¶ÃŠÃ½
 
 % Dislay the cropped region of interest and the selected puncta in each
 % image
