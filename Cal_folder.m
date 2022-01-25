@@ -1,4 +1,4 @@
-%% Batch analysis for quantification of lipid droplets area.
+%% Batch analysis for quantification of liqid droplets area in imaging assay.
 %    For analysing all images in the same folder
 %    Only *.tif files should be in the selected folder path
 %    In Line 25: 
