@@ -1,6 +1,6 @@
-%% Batch analysis：for all images in the same folder
-% 
-% 0. Only *.tif files should be in the selected folder path
+%% Batch analysis for quantification of lipid droplets area.
+%    For analysing all images in the same folder
+%    Only *.tif files should be in the selected folder path
 %    In Line 25: 
 %    For images with decent singal-to-background ratio, using "sobel" for edge detection;
 %    For images with lower singal-to-background ratio, using "canny" for edge detection.
