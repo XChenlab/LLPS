@@ -1,15 +1,10 @@
-%% 批处理：分析一个文件夹中的所有图片
-% 说明：
-% 0. 保证待处理的文件夹中只有.tif文件(该程序.m文件不用放在图片文件夹里)
-%     运行前调试：对于原图照明较好(整体较亮的图)，程序无需改动；
-%                            对于照明较差的图(整体较暗)，将第30行'sobel'改为'canny'；
-%     sobel和canny是两个边缘检测算子，后者更适于检测弱边缘(照明不好的情况)
-%    调试时需查看每一个图片的图像处理情况(使粉色覆盖部分尽量与液滴相符)，取消第55-60行注释，再运行一遍
-%    (取消注释方法：鼠标选择55-60行文字，按快捷键Ctrl+T；恢复注释为Ctrl+R)
-%    (运行时不需要看每一步图像的话，注释掉显示图片步骤，运行速度会快一些)
-% 1. 运行该程序(快捷键F5)，按弹出提示选择图片文件所在文件夹
-% 2. 等待运行结束，在Command Window中弹出所有结果
-% 3. 可将command window中结果复制粘贴至Excel，数据分栏以处理(分隔符为英文冒号)
+%% Batch analysis锛歠or all images in the same folder
+% 
+% 0. Only *.tif files should be in the selected folder path
+%    In Line 25: 
+%    For images with decent singal-to-background ratio, using "sobel" for edge detection;
+%    For images with lower singal-to-background ratio, using "canny" for edge detection.
+%    Line 48-57 is for checking the performance of the analysis
 %% choosing the folder
 file_path = uigetdir();
 img_path_list = dir(file_path);
